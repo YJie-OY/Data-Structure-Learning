@@ -1,0 +1,4 @@
+﻿  dijkstra.cpp
+D:\Visual Studio\dijkstra\dijkstra\graph.h(74,31): warning C4018: “<”: 有符号/无符号不匹配
+D:\Visual Studio\dijkstra\dijkstra\dijkstra.cpp(38,21): warning C4018: “<”: 有符号/无符号不匹配
+  dijkstra.vcxproj -> D:\Visual Studio\dijkstra\Debug\dijkstra.exe

@@ -1,0 +1,97 @@
+第4次作业要求：
+
+目    的：建立AVL树的C++类 - 基于C++11语言规范标准
+
+部分术语：本 作业要求 中所使用的部分术语的简单注释说明。
+          1. 用例 - 应用场景案例
+          2. 
+
+类 型 名：avltree (建议)
+
+基本架构：
+          1. 构造函数
+             (1) 默认构造
+                 用例1：avltree<T> b;
+                 用例2: vector<avltree<T>> v(3);
+                 用例3: avltree<T> a[3];
+                 用例4: avltree<T>* p = avltree<T>[3];
+             (2) 复制构造
+                 用例1：avltree<T> b1;
+                        ...
+                        avltree<T> b2(b1);
+                 用例2: void f(avltree<T> b) { ... }
+                        ...
+                        avltree<T> b;
+                        ...
+                        f(b);
+             (3) 移动构造
+                 用例1：avltree<T> b1;
+                        ...
+                        avltree<T> b2(std::move(b1));
+                 用例2: avltree<T> f() { ... }
+                        ...
+                        avltree<T> b;
+                        ...
+                        b = f();
+             (4) 初始化表构造
+                 用例1：avltree<T> b = { ... };
+                 用例2: void f(avltree<T> b) { ... }
+                        ...
+                        f({...});
+          2. 析构函数
+          3. 赋值运算重载
+             (1) 复制赋值
+                 用例1：avltree<T> b1, b2;
+                        ...
+                        b1 = b2;
+             (2) 移动赋值
+                 用例1：avltree<T> b1, b2;
+                        ...
+                        b1 = std::move(b2);
+                 用例2: avltree<T> f() { ... }
+                        ...
+                        avltree<T> b;
+                        ...
+                        b = f();
+             (3) 初始化表赋值
+                 用例1：avltree<T> b;
+                        ...
+                        b = { ... };
+          4. 基本函数
+             (1) size_type size () const;
+                 对于指定avl树返回其结点个数
+             (2) bool      empty() const;
+                 对于指定avl树判定其是否为空树。
+                 若肯定，返回true，否则返回false
+
+功能要求：能够对一颗avl树进行 查询/插入/删除 操作。
+          1. 查询函数
+             (1) bool contains(const value_type& x);
+                 对于给定的值x，确定指定avl树中是否存在结点其数据域的值
+                 恰好与x的值相等。若回答肯定，返回true，否则返回false
+             (2) const T& findmin() const; 或 const T& min() const;
+                 对于指定avl树返回其所有结点数据域的值的最小值
+                 建议：如果该avl树为空树，则抛出异常
+             (3)       T& findmin()      ; 或       T& min()      ;
+                 对于指定avl树返回其包含最小值的结点的数据域
+                 建议：如果该avl树为空树，则抛出异常
+             (4) const T& findmax() const; 或 const T& max() const;
+                 对于指定avl树返回其所有结点数据域的值的最大值
+                 建议：如果该avl树为空树，则抛出异常
+             (5)       T& findmax()      ; 或       T& max()      ;
+                 对于指定avl树返回其包含最大值的结点的数据域
+                 建议：如果该avl树为空树，则抛出异常
+          2. 插入函数: 在保持avl树排序性的前提下将新元素加入其中。
+             (1) bool insert(const value_type &  x);
+             (2) bool insert(      value_type && x);
+             如果确实有新元素加入，返回true，否则返回false
+          3. 删除函数：对于给定元素删除制定avl树中其数据域的值恰好等于此元素的结点
+             (1) bool remove(const value_type&); 或 bool erase(const value_type&);
+
+性能要求：各种操作符合指定的时间复杂度。
+          1. 默认构造/移动构造/移动赋值/基本函数         - 常量时间复杂度
+          2. 复制构造/复制赋值/初始化表构造/初始化表赋值 - 线性时间复杂度
+          3. 查询/插入/删除                              - 对数时间复杂度
+
+测试要求：检查所实现avltree类的对象是否具备上述要求的功能和性能。
+
